@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +11,10 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
+Route::post('users', 'User@postAdd');
+Route::post('users', 'User@postAdd');
+
+Route::post('games', 'Game@postAdd');
+Route::get('games/{username}', 'Game@getGames');
+Route::get('games/{username}/{game_id}', 'Game@getGame');
+Route::patch('games/update', 'Game@patchUpdate');
