@@ -47,16 +47,25 @@ class Game extends Controller
     public function getGames(Request $request)
     {
         $user = $this->userModel->where('username', $request->route('username'))->first();
+        
         if(!$user)
         {
             return response()->json(['error' => 'User not found'], 422);
         }
+        
         return $user->games;
     }
     
-    public function getGame()
+    public function getGame(Request $request)
     {
+        $user = $this->userModel->where('username', $request->route('username'))->first();
         
+        if(!$user)
+        {
+            return response()->json(['error' => 'User not found'], 422);
+        }
+        
+        return $this->gameModel->where('id', $request->route('game_id'))->where('user_id', $user->id)->first();
     }
     
     public function patchUpdate()
