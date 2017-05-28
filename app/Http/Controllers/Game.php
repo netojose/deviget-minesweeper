@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddGame;
+use Illuminate\Http\Request;
 use App\Models\Game as GameModel;
+use App\Models\User as UserModel;
 use App\Services\Game as GameService;
 
 class Game extends Controller
@@ -15,13 +17,20 @@ class Game extends Controller
     private $gameModel;
     
     /**
+     * User Model
+     * @var Illuminate\Database\Eloquent\Model
+     */
+    private $userModel;
+    
+    /**
      * Game Service
      * @var App\Services\Game
      */
     private $gameService;
     
-    public function __construct(GameModel $gameModel, GameService $gameService) {
+    public function __construct(GameModel $gameModel, UserModel $userModel, GameService $gameService) {
         $this->gameModel = $gameModel;
+        $this->userModel = $userModel;
         $this->gameService = $gameService;
     }
     
@@ -35,9 +44,14 @@ class Game extends Controller
         return $game;
     }
     
-    public function getGames()
+    public function getGames(Request $request)
     {
-        
+        $user = $this->userModel->where('username', $request->route('username'))->first();
+        if(!$user)
+        {
+            return response()->json(['error' => 'User not found'], 422);
+        }
+        return $user->games;
     }
     
     public function getGame()
