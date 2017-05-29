@@ -7,9 +7,6 @@
 
         <title>Deviget - Minesweeper</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
         <!-- Styles -->
         <style>
             html, body {
@@ -44,23 +41,14 @@
             .content {
                 text-align: center;
             }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
-                    Minesweeper
-                </div>
+                <div id="app"></div>
             </div>
         </div>
+        <script src="{{asset('app.js')}}"></script>
     </body>
 </html>
