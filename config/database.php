@@ -1,5 +1,20 @@
 <?php
 
+// HEROKU VARS
+$heroku_host = null;
+$heroku_username = null;
+$heroku_password = null;
+$heroku_database = null;
+if(getenv("CLEARDB_DATABASE_URL")){
+    $url = parse_url( getenv("CLEARDB_DATABASE_URL") );
+    $heroku_host = $url["host"];
+    $heroku_username = $url["user"];
+    $heroku_password = $url["pass"];
+    $heroku_database = substr($url["path"], 1);
+    unset($url);
+}
+// HEROKU VARS
+
 return [
 
     /*
@@ -52,6 +67,18 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
+        ],
+        
+        'heroku' => [
+            'driver' => 'mysql',
+            'host' => $heroku_host,
+            'port' => env('DB_PORT', '3306'),
+            'database' => $heroku_database,
+            'username' => $heroku_username,
+            'password' => $heroku_password,
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => ''
         ],
 
         'pgsql' => [
