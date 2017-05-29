@@ -17,9 +17,9 @@ class User extends Controller
         $this->userModel = $userModel;
     }
     
-    public function postAdd(AddUser $request)
+    public function postLogin(AddUser $request)
     {
-        $user = $this->userModel->create($request->only("username"));
+        $user = $this->userModel->firstOrCreate($request->only("username"));
         return $user;
     }
 }

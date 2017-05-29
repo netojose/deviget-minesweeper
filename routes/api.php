@@ -11,7 +11,7 @@
 |
 */
 
-Route::post('users', 'User@postAdd');
+Route::post('users', 'User@postLogin');
 
 Route::post('games', 'Game@postAdd');
 Route::get('games/{username}', 'Game@getGames');

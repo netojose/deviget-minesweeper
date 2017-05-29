@@ -24,7 +24,7 @@ class AddUser extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|alpha_num|max:30|unique:users'
+            'username' => 'required|alpha_num|max:30'
         ];
     }
 }
