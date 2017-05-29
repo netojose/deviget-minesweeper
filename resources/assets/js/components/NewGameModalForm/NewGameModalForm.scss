@@ -11,6 +11,7 @@
     }
     
     .modal {
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.80);
         background: #fff;
         width: 250px;
         left: 50%;
@@ -18,5 +19,10 @@
         transform: translate(-50%, -50%);
         position: fixed;
         z-index: 999;
+        padding: 10px;
+        
+        label{
+            display: block;
+        }
     }
 }

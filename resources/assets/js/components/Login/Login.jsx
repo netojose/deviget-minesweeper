@@ -50,10 +50,11 @@ export default class Login extends React.Component {
     render() {
         return (
             <form className="Login">
+                <h3>Login/Register</h3>
                 <input type="text" ref={input => { this.textInput = input; }} onKeyPress={this.onKeyPressInput} onChange={this.onChangeInput} value={this.state.inputValue} disabled={this.state.loading} />
-                {this.state.loading && <p>Loading...</p>}
                 <Errors errors={this.state.errors} />
                 <input type="button" value="Login" onClick={this.handleLogin} disabled={this.state.loading} />
+                {this.state.loading && <p className="loading-msg">Loading...</p>}
             </form>
         );
     }

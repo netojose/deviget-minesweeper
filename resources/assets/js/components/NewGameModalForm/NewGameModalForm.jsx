@@ -44,9 +44,11 @@ export default class NewGameModalForm extends React.Component {
                     <label>Rows <input type="text" value={this.state.rows} onChange={this.setValue.bind(this, 'rows')} ref={input => { this.textInputRows = input; }} /></label>
                     <label>Columns <input type="text" value={this.state.columns} onChange={this.setValue.bind(this, 'columns')} /></label>
                     <label>Mines <input type="text" value={this.state.mines} onChange={this.setValue.bind(this, 'mines')} /></label>
-                    <input type="button" value="Create game" onClick={this.handleCreateGame} />
-                    <input type="button" value="Cancel" onClick={this.handleClose} />
-                    <Errors errors={this.state.errors} />
+                    <div className="centered">
+                        <input type="button" value="Create game" onClick={this.handleCreateGame} />
+                        <input type="button" value="Cancel" onClick={this.handleClose} />
+                        <Errors errors={this.state.errors} />
+                    </div>
                 </div>
             </div>, this.popup);
     }

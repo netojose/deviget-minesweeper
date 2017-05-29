@@ -3,6 +3,26 @@ html, body {
     color: #636b6f;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
-    height: 100vh;
     margin: 0;
+}
+
+input[type="button"], input {
+    border: solid #eee 1px;
+    background: #fff;
+    margin: 4px;
+    padding: 5px;
+    transition: 0.5s;
+    &:hover {
+        background: #eee;
+        border-color: #999;
+        color:#aaa;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+.centered {
+    text-align: center;
 }

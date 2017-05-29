@@ -9,7 +9,7 @@ export default class GameBoard extends React.Component {
         Object.keys(row).map(colKey => {
             items.push(<li key={`${rowKey}-${colKey}`}><Cell data={row[colKey]} row={rowKey} col={colKey} /></li>);
         });
-        return <ul>{items}</ul>
+        return <ul className="row">{items}</ul>
     }
         
     render() {

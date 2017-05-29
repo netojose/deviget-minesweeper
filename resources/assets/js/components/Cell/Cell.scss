@@ -2,4 +2,9 @@
     width: 35px;
     height: 35px;
     background: #eee;
+    transition: all 250ms linear;
+    &:hover {
+        transform: scale(1.2);
+        background: #ddd;
+    }
 }

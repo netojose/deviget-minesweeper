@@ -53,18 +53,21 @@ export default class Game extends React.Component {
     render() {
         return (
             <div className="Game">
-                <p>Wellcome {this.props.user.username}</p>
+                <h1>Wellcome {this.props.user.username}</h1>
                 
                 {this.state.loadingGames && <p>Loading games...</p>}
                 
                 {(() => {
                     if(this.state.games.length > 0){
                         return (
-                            <ul>
-                                {this.state.games.map(game => {
-                                    return <li><input key={game.id} onClick={this.loadGame.bind(this, game)} type="button" value={`${game.created_at} \ ${game.finished}`} /></li>;
-                                })}
-                            </ul>
+                            <div>
+                                <h3>Saved games</h3>
+                                <ul className="games-list">
+                                    {this.state.games.map(game => {
+                                        return <li><input key={game.id} className={game.id == this.state.currentGameId ? 'current' : ''} onClick={this.loadGame.bind(this, game)} type="button" value={`${game.rows}x${game.columns} - ${game.created_at} \ (${game.finished === 'y' ? 'Finished' : 'Not finished'})`} /></li>;
+                                    })}
+                                </ul>
+                            </div>
                         )
                     }
                 })()}
