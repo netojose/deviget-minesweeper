@@ -58,4 +58,35 @@ class Game {
         return $cells;
     }
     
+    /**
+     * Update game
+     * @param App\Models\Game $game
+     * @param array $elements
+     * @param string|null $duration
+     * @return App\Models\Game A updated game
+     */
+    public function updateGame($game, $elements, $duration = null)
+    {
+        if($duration){
+            $game->duration = $duration;
+        }
+        
+        $gameElements = json_decode($game->elements, true);
+        foreach($gameElements as $keyRow => $rows){
+            $cols = array_keys($rows);
+            foreach($cols as $keyCol){
+                if(isset($elements[$keyRow][$keyCol]))
+                {
+                    $gameElements[$keyRow][$keyCol]["status"] = $elements[$keyRow][$keyCol];
+                }
+            }
+        }
+        
+        $game->elements = $gameElements;
+        
+        $game->save();
+        
+        return $game;
+    }
+    
 }

@@ -68,8 +68,17 @@ class Game extends Controller
         return $this->gameModel->where('id', $request->route('game_id'))->where('user_id', $user->id)->first();
     }
     
-    public function patchUpdate()
+    public function patchUpdate(Request $request)
     {
+        $game = $this->gameModel->find($request->input('game_id'));
         
+        if(!$game)
+        {
+            return response()->json(['error' => 'game not found'], 422);
+        }
+        
+        $updatedGame = $this->gameService->updateGame($game, $request->input('elements'), $request->input('duration'));
+        
+        return $updatedGame;
     }
 }
