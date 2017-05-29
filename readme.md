@@ -17,7 +17,13 @@ There is a [postman file](https://github.com/netojose/deviget-test/blob/master/p
 * Get specific game
 * Update game (cells tatus, time, game status)
 
-:white_check_mark: Back-end storage full working (I used sqLite on local environment, but heroku delete the database file on every deploy or each 24 hours. So, I'm using MySql on Heroku).
+:white_check_mark: Back-end storage full working
+
+:white_check_mark: Front-end interface and interaction
+
+* Register/Login
+* Create a new game
+* Load a saved game
 
 ## What is incomplete
 :x: Front-end tasks:
@@ -32,7 +38,7 @@ There is a [postman file](https://github.com/netojose/deviget-test/blob/master/p
 * Unit tests
 
 ## Decisions taken
-* Because of Heroku limitations, I changed SqLite by MySql.
+* I used sqLite on local environment, but heroku delete the database file on every deploy or each 24 hours. So, I'm using MySql database on Heroku because of Heroku limitations.
 * Because of short time (Is impossible finish the task [Front&back] in 5 hours), I droped the tests (server-side tests and front-end tests). I hate work without tests :rage:
 
 ## Important notes
