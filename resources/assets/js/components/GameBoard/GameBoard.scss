@@ -1,8 +1,10 @@
 .GameBoard {
     .row {
         padding: 0;
+        margin: 0;
+        clear: both;
         li {
-            float: left;
+            display: inline-block;
             margin: 3px;
         }
     }
