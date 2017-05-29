@@ -60,7 +60,12 @@ export default class NewGameModalForm extends React.Component {
     handleCreateGame() {
         let {rows, columns, mines} = this.state;
         let user_id = this.props.userId;
-        Api.post('games', { user_id, rows, columns, mines }).then(response => {
+        Api.post('games', {
+            user_id: parseInt(user_id, 10), 
+            rows: parseInt(rows, 10), 
+            columns: parseInt(columns, 10), 
+            mines: parseInt(mines, 10)
+        }).then(response => {
             this.props.handleNewGameCreated(response.data);
         })
         .catch(error => {

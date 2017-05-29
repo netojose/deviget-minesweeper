@@ -23,12 +23,15 @@ class AddGame extends FormRequest
      */
     public function rules()
     {
-        $maxMines = floor($this->input('rows', 2) * $this->input('columns', 2) / 2);
+        $rows = $this->input('rows');
+        $columns = $this->input('columns');
+        $maxMines = floor((is_int($rows) ? $rows : 0) * (is_int($columns) ? $columns : 0) / 2);
+        
         return [
             "user_id"   => "required|exists:users,id", 
             "rows"      => "required|numeric|min:2|max:10", 
             "columns"   => "required|numeric|min:2|max:10", 
-            "mines"     => "required|numeric|min:1|max:" . $maxMines
+            "mines"     => "required|numeric|min:1". ($maxMines ? ("|max:" . $maxMines) : '')
         ];
     }
 }
