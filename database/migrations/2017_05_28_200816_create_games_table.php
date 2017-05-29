@@ -19,7 +19,7 @@ class CreateGamesTable extends Migration
             $table->integer('rows')->unsigned();
             $table->integer('columns')->unsigned();
             $table->integer('mines')->unsigned();
-            $table->json('elements');
+            $table->text('elements');
             $table->time('duration')->default('00:00:00');
             $table->enum('finished', ['y', 'n'])->default('n');
             $table->timestamps();
