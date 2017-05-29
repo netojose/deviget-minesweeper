@@ -69,6 +69,8 @@ export default class Game extends React.Component {
                                 </ul>
                             </div>
                         )
+                    } else if (!this.state.loadingGames) {
+                        return <p>There is no game added. You can use button below to create a new game</p>
                     }
                 })()}
                 
