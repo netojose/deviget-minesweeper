@@ -1,0 +1,136 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Deviget",
+		"_postman_id": "887156e4-96f6-a85a-764d-25356c885e72",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add user",
+			"request": {
+				"url": "{{url}}/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"neto\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add game",
+			"request": {
+				"url": "{{url}}/games",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_id\": 1,\n\t\"rows\": 3,\n\t\"columns\": 4,\n\t\"mines\": 20\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get games by user",
+			"request": {
+				"url": "{{url}}/games/neto",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_id\": 1,\n\t\"rows\": 5,\n\t\"columns\": 5,\n\t\"mines\": 10\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get game by id and username",
+			"request": {
+				"url": "{{url}}/games/neto/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_id\": 1,\n\t\"rows\": 5,\n\t\"columns\": 5,\n\t\"mines\": 10\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update game",
+			"request": {
+				"url": "{{url}}/games/update",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"game_id\": 1,\n\t\"duration\": \"00:02:23\",\n\t\"elements\": {\"r_1\":{\"c_1\":\"closed\",\"c_2\":\"flag\",\"c_3\":\"closed\",\"c_4\":\"question\",\"c_5\":\"closed\"},\"r_2\":{\"c_1\":\"closed\",\"c_2\":\"closed\",\"c_3\":\"flag\",\"c_4\":\"closed\",\"c_5\":\"closed\"},\"r_3\":{\"c_1\":\"question\",\"c_2\":\"closed\",\"c_3\":\"flag\",\"c_4\":\"closed\",\"c_5\":\"closed\"},\"r_4\":{\"c_1\":\"question\",\"c_2\":\"closed\",\"c_3\":\"flag\",\"c_4\":\"closed\",\"c_5\":\"closed\"},\"r_5\":{\"c_1\":\"closed\",\"c_2\":\"flag\",\"c_3\":\"closed\",\"c_4\":\"question\",\"c_5\":\"closed\"}}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
