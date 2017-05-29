@@ -8,4 +8,6 @@ npm-debug.log
 .DS_Store
 .env
 /database/*.sqlite
+
 /public/app.js
+/public/style.css
