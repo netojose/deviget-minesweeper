@@ -36,5 +36,5 @@ There is a [postman file](https://github.com/netojose/deviget-test/blob/master/p
 * Because of short time (Is impossible finish the task [Front&back] in 5 hours), I droped the tests (server-side tests and front-end tests). I hate work without tests :rage:
 
 ## Important notes
-* The commits time sum, spend more than 5 hours. But I don't was working all the time, I stope many times for other stuffs here (cooking, food, etc.), so the total time at work was 5 or 6 hours approximately.
+* The time sum of the `commits` spend more than 5 hours. But I don't was working all the time, I stoped many times for to do other things here (cooking, eat, go to supermarket, etc.), so the total time at work was 5 or 6 hours approximately.
 * The cells interactions is not done, **but** you can click on cell, and on browser console, cell information will be displayed (to be used on next step [flag/reveal cell]).
