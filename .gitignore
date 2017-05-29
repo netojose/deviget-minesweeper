@@ -9,5 +9,5 @@ npm-debug.log
 .env
 /database/*.sqlite
 
-/public/app.js
-/public/style.css
+#/public/app.js
+#/public/style.css
