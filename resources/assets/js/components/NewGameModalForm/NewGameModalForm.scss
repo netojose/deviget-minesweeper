@@ -1,0 +1,22 @@
+.NewGameModalForm {
+    .overlay {
+        position: fixed;
+        z-index: 998;
+        background: #000;
+        opacity: .7;
+        left:0;
+        top: 0;
+        width:100vw;
+        height: 100%;
+    }
+    
+    .modal {
+        background: #fff;
+        width: 250px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        position: fixed;
+        z-index: 999;
+    }
+}

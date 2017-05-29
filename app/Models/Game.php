@@ -12,7 +12,8 @@ class Game extends Model
         "columns", 
         "mines", 
         "elements", 
-        "duration"
+        "duration",
+        "finished"
     ];
     
     protected $casts = [

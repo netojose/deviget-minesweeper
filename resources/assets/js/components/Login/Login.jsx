@@ -1,5 +1,6 @@
 import React from 'react';
 import './Login.scss';
+import Errors from '../Errors/Errors';
 import Api from '../../Libraries/Api'
 
 export default class Login extends React.Component {
@@ -11,8 +12,8 @@ export default class Login extends React.Component {
         this.handleLogin = this.handleLogin.bind(this);
         this.state = {
             inputValue: '',
-            errorMsg: '',
-            loading: false
+            loading: false,
+            errors: null
         }
     }
     
@@ -21,7 +22,7 @@ export default class Login extends React.Component {
     }
     
     onChangeInput(evt) {
-        this.setState({inputValue: evt.target.value, errorMsg: ''});
+        this.setState({inputValue: evt.target.value, errors: null});
     }
     
     onKeyPressInput(evt) {
@@ -42,9 +43,7 @@ export default class Login extends React.Component {
             this.setState({loading: false}, () => {
                 this.textInput.focus();
             });
-            if(error.response.status == 422){
-                this.setState({errorMsg: error.response.data.username[0]});
-            }
+            this.setState({errors: error});
         });
     }
             
@@ -53,7 +52,7 @@ export default class Login extends React.Component {
             <form className="Login">
                 <input type="text" ref={input => { this.textInput = input; }} onKeyPress={this.onKeyPressInput} onChange={this.onChangeInput} value={this.state.inputValue} disabled={this.state.loading} />
                 {this.state.loading && <p>Loading...</p>}
-                {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
+                <Errors errors={this.state.errors} />
                 <input type="button" value="Login" onClick={this.handleLogin} disabled={this.state.loading} />
             </form>
         );

@@ -40,6 +40,7 @@ class Game extends Controller
         $data["duration"] = "00:00:00";
         $elements = $this->gameService->createBoard($data["rows"], $data["columns"], $data["mines"]);
         $data["elements"] = json_encode($elements);
+        $data["finished"] = "n";
         $game = $this->gameModel->create($data);
         return $game;
     }
